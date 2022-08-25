@@ -1,0 +1,22 @@
+#cloud-config
+autoinstall:
+  version: 1
+  interactive-sections: []
+  ssh:
+    install-server: true
+    allow-pw: true
+    authorized-keys:
+      - ...
+  user-data:
+    disable_root: false
+  identity:
+    hostname: ubuntu-server
+    username: ubuntu
+    password: ...
+  early-commands: []
+  late-commands:
+    - swapoff -a
+    - sed -i '/swap/ s/^\(.*\)$/#\1/g' /target/etc/fstab
+    - echo 'ubuntu ALL=(ALL) NOPASSWD:ALL' > /target/etc/sudoers.d/ubuntu
+    - chmod 440 /target/etc/sudoers.d/ubuntu
+
