@@ -5,7 +5,8 @@ CLIENTIP=$2
 VCPUS=${3:-2}
 MEMORY=${4:-2048}
 DISKSIZE=${5:-30}
-DISKPATH=./STORAGE/$HOSTNAME.rawdisk
+# DISKPATH=./STORAGE/$HOSTNAME.rawdisk
+DISKPATH=./$HOSTNAME.rawdisk
 MACADDR=RANDOM
 DEVICE=enp1s0
 AUTOCONF=off
@@ -15,7 +16,8 @@ DNS0IP=192.168.122.1
 DNS1IP=
 GATEWAYIP=192.168.122.1
 NETMASK=255.255.255.0
-LOCATION=./ubuntu-autoinstall-generator/ubuntu-autoinstall.iso
+# LOCATION=./ubuntu-autoinstall-generator/ubuntu-autoinstall.iso
+LOCATION=./ubuntu-autoinstall.iso
 
 sudo virt-install \
 --connect=qemu:///system \
